@@ -4,6 +4,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <Text>Hola Coder</Text>
+      <Text>Esto es una prueba</Text>
     </View>
   );
 }
