@@ -1,19 +1,29 @@
-import { StyleSheet, Text, View } from "react-native";
+import { View, Text, StyleSheet, Button, TextInput } from "react-native";
 
-export default function App() {
+const App = () => {
   return (
     <View style={styles.container}>
-      <Text>Hola Coder</Text>
-      <Text>Esto es una prueba</Text>
+      <View style={styles.inputContainer}>
+        <TextInput style={styles.input} />
+        <Button title="ADD" />
+      </View>
     </View>
   );
-}
-
+};
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     backgroundColor: "#fff",
+    flex: 1,
+    justifyContent: "start",
     alignItems: "center",
-    justifyContent: "center",
+    marginTop: 25,
+  },
+  input: {
+    width: 200,
+    borderWidth: 1,
+  },
+  inputContainer: {
+    flexDirection: "row",
   },
 });
+export default App;
