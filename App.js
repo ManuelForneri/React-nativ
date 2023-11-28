@@ -7,6 +7,13 @@ const App = () => {
         <TextInput style={styles.input} />
         <Button title="ADD" />
       </View>
+      <View style={styles.listContainer}>
+        <View style={styles.cardProduct}>
+          <Text>Coca cola</Text>
+          <Text>$1000</Text>
+          <Button title="Del" />
+        </View>
+      </View>
     </View>
   );
 };
@@ -19,11 +26,29 @@ const styles = StyleSheet.create({
     marginTop: 25,
   },
   input: {
-    width: 200,
+    width: "70%",
     borderWidth: 1,
+    padding: 4,
   },
   inputContainer: {
+    width: "100%",
     flexDirection: "row",
+    marginBottom: 20,
+    margin: "auto",
+    justifyContent: "center",
+  },
+  listContainer: {
+    width: "100%",
+    alignItems: "center",
+  },
+  cardProduct: {
+    flexDirection: "row",
+    gap: 20,
+    padding: 10,
+    justifyContent: "center",
+    alignItems: "center",
+    width: "70%",
+    borderWidth: 1,
   },
 });
 export default App;
