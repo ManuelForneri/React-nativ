@@ -1,5 +1,13 @@
 import { useState } from "react";
-import { View, Text, StyleSheet, Button, TextInput } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  Button,
+  TextInput,
+  FlatList,
+  Modal,
+} from "react-native";
 
 const App = () => {
   const [products, setProducts] = useState([]);
@@ -36,14 +44,25 @@ const App = () => {
         <Button title="ADD" onPress={handlerAddProducts} />
       </View>
       <View style={styles.listContainer}>
-        {products.map((prod) => (
-          <View key={prod.id} style={styles.cardProduct}>
-            <Text>{prod.title}</Text>
-            <Text>${prod.price}</Text>
-            <Button title="Del" onPress={openDeletedModal} />
-          </View>
-        ))}
+        <FlatList
+          data={products}
+          keyExtractor={(item) => item.id}
+          renderItem={({ item }) => (
+            <View style={styles.cardProduct}>
+              <Text>{item.title}</Text>
+              <Text>${item.price}</Text>
+              <Button title="Del" onPress={openDeletedModal} />
+            </View>
+          )}
+        />
       </View>
+      <Modal>
+        <View style={styles.modalContainer}>
+          <Text>Esta seguro que quiere eliminar el producto</Text>
+          <Button color="green" title="Yes" />
+          <Button color="red" title="no" />
+        </View>
+      </Modal>
     </View>
   );
 };
@@ -78,8 +97,13 @@ const styles = StyleSheet.create({
     padding: 10,
     justifyContent: "center",
     alignItems: "center",
-    width: "70%",
+    width: "90%",
     borderWidth: 1,
+  },
+  modalContainer: {
+    backgroundColor: "#bbb",
+    padding: 30,
+    gap: 10,
   },
 });
 export default App;
