@@ -13,6 +13,7 @@ const App = () => {
   const [products, setProducts] = useState([]);
   const [titleProduct, setTitleProduct] = useState("");
   const [priceProduct, setPriceProduct] = useState("");
+  const [productSelected, setProductSelected] = useState({});
   const [onModal, setOnModal] = useState(false);
 
   const handlerAddProducts = () => {
@@ -26,8 +27,17 @@ const App = () => {
     setPriceProduct("");
     console.log(products);
   };
-  const openDeletedModal = () => {};
-
+  const openDeletedModal = (item) => {
+    setProductSelected(item);
+    setOnModal(true);
+  };
+  const deletedProduct = (deletedProd) => {
+    const productosFilter = products.filter(
+      (product) => product.id !== deletedProd.id
+    );
+    setProducts(productosFilter);
+    setOnModal(false);
+  };
   return (
     <View style={styles.container}>
       <View style={styles.inputContainer}>
@@ -51,16 +61,23 @@ const App = () => {
             <View style={styles.cardProduct}>
               <Text>{item.title}</Text>
               <Text>${item.price}</Text>
-              <Button title="Del" onPress={openDeletedModal} />
+              <Button title="Del" onPress={() => openDeletedModal(item)} />
             </View>
           )}
         />
       </View>
-      <Modal>
+      <Modal visible={onModal}>
         <View style={styles.modalContainer}>
-          <Text>Esta seguro que quiere eliminar el producto</Text>
-          <Button color="green" title="Yes" />
-          <Button color="red" title="no" />
+          <Text>
+            Esta seguro que quiere eliminar el producto con el id:
+            {productSelected.id}
+          </Text>
+          <Button
+            color="green"
+            title="Yes"
+            onPress={() => deletedProduct(productSelected)}
+          />
+          <Button color="red" title="no" onPress={() => setOnModal(false)} />
         </View>
       </Modal>
     </View>
