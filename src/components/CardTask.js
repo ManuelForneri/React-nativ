@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
     margin: 10,
     justifyContent: "space-around",
     alignItems: "center",
-    borderWidth: 4,
+    borderWidth: 1,
   },
 });
 export default CardTask;
