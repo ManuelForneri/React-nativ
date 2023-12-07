@@ -1,126 +1,47 @@
 import { useState } from "react";
-import {
-  View,
-  Text,
-  StyleSheet,
-  Button,
-  TextInput,
-  FlatList,
-  Modal,
-} from "react-native";
+import { View, StyleSheet } from "react-native";
+import TopBarTask from "./src/components/TopBarTask.js";
+import ModalDeleteConfirm from "./src/components/ModalDeleteConfirm.js";
+import TaskList from "./src/components/TaskList.js";
 
 const App = () => {
-  const [products, setProducts] = useState([]);
-  const [titleProduct, setTitleProduct] = useState("");
-  const [priceProduct, setPriceProduct] = useState("");
-  const [productSelected, setProductSelected] = useState({});
-  const [onModal, setOnModal] = useState(false);
+  const [tasks, setTasks] = useState([]);
+  const [visibleModal, setVisibleModal] = useState(false);
+  const [taskSelected, setTaskSelected] = useState({});
+  const [newTaskName, setNewTaskName] = useState("");
 
-  const handlerAddProducts = () => {
-    const newProduct = {
+  const addTask = () => {
+    const newTask = {
       id: Date.now(),
-      price: priceProduct,
-      title: titleProduct,
+      name: newTaskName,
+      date: Date.now(),
     };
-    setProducts((current) => [...current, newProduct]);
-    setTitleProduct("");
-    setPriceProduct("");
-    console.log(products);
+
+    setTasks((current) => [...current, newTask]);
+    setNewTaskName("");
   };
-  const openDeletedModal = (item) => {
-    setProductSelected(item);
-    setOnModal(true);
-  };
-  const deletedProduct = (deletedProd) => {
-    const productosFilter = products.filter(
-      (product) => product.id !== deletedProd.id
-    );
-    setProducts(productosFilter);
-    setOnModal(false);
-  };
+
   return (
     <View style={styles.container}>
-      <View style={styles.inputContainer}>
-        <TextInput
-          style={styles.input}
-          placeholder="Producto"
-          onChangeText={(t) => setTitleProduct(t)}
-        />
-        <TextInput
-          style={styles.input}
-          placeholder="Precio"
-          onChangeText={(t) => setPriceProduct(t)}
-        />
-        <Button title="ADD" onPress={handlerAddProducts} />
-      </View>
-      <View style={styles.listContainer}>
-        <FlatList
-          data={products}
-          keyExtractor={(item) => item.id}
-          renderItem={({ item }) => (
-            <View style={styles.cardProduct}>
-              <Text>{item.title}</Text>
-              <Text>${item.price}</Text>
-              <Button title="Del" onPress={() => openDeletedModal(item)} />
-            </View>
-          )}
-        />
-      </View>
-      <Modal visible={onModal}>
-        <View style={styles.modalContainer}>
-          <Text>
-            Esta seguro que quiere eliminar el producto con el id:
-            {productSelected.id}
-          </Text>
-          <Button
-            color="green"
-            title="Yes"
-            onPress={() => deletedProduct(productSelected)}
-          />
-          <Button color="red" title="no" onPress={() => setOnModal(false)} />
-        </View>
-      </Modal>
+      <TopBarTask setNewTaskName={setNewTaskName} addTask={addTask} />
+      <TaskList
+        tasks={tasks}
+        setVisibleModal={setVisibleModal}
+        setTaskSelected={setTaskSelected}
+      />
+      <ModalDeleteConfirm
+        taskSelected={taskSelected}
+        visibleModal={visibleModal}
+        setVisibleModal={setVisibleModal}
+        tasks={tasks}
+        setTasks={setTasks}
+      />
     </View>
   );
 };
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#fff",
-    flex: 1,
-    justifyContent: "start",
-    alignItems: "center",
-    marginTop: 25,
-  },
-  input: {
-    width: "30%",
-    borderWidth: 1,
-    padding: 4,
-  },
-  inputContainer: {
-    gap: 10,
-    width: "100%",
-    flexDirection: "row",
-    marginBottom: 20,
-    margin: "auto",
-    justifyContent: "center",
-  },
-  listContainer: {
-    width: "100%",
-    alignItems: "center",
-  },
-  cardProduct: {
-    flexDirection: "row",
-    gap: 20,
-    padding: 10,
-    justifyContent: "center",
-    alignItems: "center",
-    width: "90%",
-    borderWidth: 1,
-  },
-  modalContainer: {
-    backgroundColor: "#bbb",
-    padding: 30,
-    gap: 10,
+    marginTop: 30,
   },
 });
 export default App;
