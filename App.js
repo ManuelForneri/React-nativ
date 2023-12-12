@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { View, StyleSheet } from "react-native";
-import TopBarTask from "./src/components/TopBarTask.js";
-import ModalDeleteConfirm from "./src/components/ModalDeleteConfirm.js";
-import TaskList from "./src/components/TaskList.js";
+import TopBarTask from "./src/Components/TopBarTask.js";
+import ModalDeleteConfirm from "./src/Components/ModalDeleteConfirm.js";
+import TaskList from "./src/Components/TaskList.js";
+import Header from "./src/Components/Header.js";
 
 const App = () => {
   const [tasks, setTasks] = useState([]);
@@ -22,7 +23,8 @@ const App = () => {
   };
 
   return (
-    <View style={styles.container}>
+    <View>
+      <Header />
       <TopBarTask setNewTaskName={setNewTaskName} addTask={addTask} />
       <TaskList
         tasks={tasks}
@@ -39,9 +41,5 @@ const App = () => {
     </View>
   );
 };
-const styles = StyleSheet.create({
-  container: {
-    marginTop: 30,
-  },
-});
+const styles = StyleSheet.create({});
 export default App;
