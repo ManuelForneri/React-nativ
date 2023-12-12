@@ -4,6 +4,8 @@ import TopBarTask from "./src/Components/TopBarTask.js";
 import ModalDeleteConfirm from "./src/Components/ModalDeleteConfirm.js";
 import TaskList from "./src/Components/TaskList.js";
 import Header from "./src/Components/Header.js";
+import Categories from "./src/Components/Categories.js";
+import Home from "./src/Screens/Home.js";
 
 const App = () => {
   const [tasks, setTasks] = useState([]);
@@ -24,20 +26,22 @@ const App = () => {
 
   return (
     <View>
-      <Header />
+      {/* <Header />
       <TopBarTask setNewTaskName={setNewTaskName} addTask={addTask} />
       <TaskList
         tasks={tasks}
         setVisibleModal={setVisibleModal}
         setTaskSelected={setTaskSelected}
       />
+
       <ModalDeleteConfirm
         taskSelected={taskSelected}
         visibleModal={visibleModal}
         setVisibleModal={setVisibleModal}
         tasks={tasks}
         setTasks={setTasks}
-      />
+      /> */}
+      <Home />
     </View>
   );
 };

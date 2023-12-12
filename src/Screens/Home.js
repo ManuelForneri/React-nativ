@@ -6,7 +6,7 @@ import Categories from "../Components/Categories";
 const Home = () => {
   return (
     <>
-      <Header title="Categorias" />
+      <Header title="Home" />
       <Categories />
     </>
   );
