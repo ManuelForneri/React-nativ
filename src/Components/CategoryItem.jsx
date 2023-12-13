@@ -1,7 +1,7 @@
 import { Pressable, StyleSheet, Text, View } from "react-native";
 import React from "react";
 
-const Category = ({ item }) => {
+const CategoryItem = ({ item }) => {
   return (
     <View style={styles.container}>
       <Pressable style={styles.category} onPress={() => console.log(item)}>
@@ -11,7 +11,7 @@ const Category = ({ item }) => {
   );
 };
 
-export default Category;
+export default CategoryItem;
 
 const styles = StyleSheet.create({
   container: {

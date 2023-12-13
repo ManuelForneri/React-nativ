@@ -1,11 +1,12 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
+import Header from "../Components/Header";
 
 const ItemListCategories = () => {
   return (
-    <View>
-      <Text>ItemListCategories</Text>
-    </View>
+    <>
+      <Header title="ItemListCategories" />
+    </>
   );
 };
 

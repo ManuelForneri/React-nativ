@@ -6,6 +6,7 @@ import TaskList from "./src/Components/TaskList.js";
 import Header from "./src/Components/Header.js";
 import Categories from "./src/Components/Categories.js";
 import Home from "./src/Screens/Home.js";
+import ItemListCategories from "./src/Screens/ItemListCategories.jsx";
 
 const App = () => {
   const [tasks, setTasks] = useState([]);
@@ -41,7 +42,8 @@ const App = () => {
         tasks={tasks}
         setTasks={setTasks}
       /> */}
-      <Home />
+      {/* <Home /> home terminado */}
+      <ItemListCategories />
     </View>
   );
 };
