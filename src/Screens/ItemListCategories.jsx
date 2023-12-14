@@ -21,6 +21,7 @@ const ItemListCategories = () => {
       <Header title="ItemListCategories" />
       <SearchBar setKeyword={setKeyword} />
       <FlatList
+        style={styles.container}
         data={tasks}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => <TaskItem item={item} />}
@@ -31,4 +32,8 @@ const ItemListCategories = () => {
 
 export default ItemListCategories;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    padding: 20,
+  },
+});
