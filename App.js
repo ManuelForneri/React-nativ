@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { View, StyleSheet } from "react-native";
-import TopBarTask from "./src/Components/TopBarTask.js";
-import ModalDeleteConfirm from "./src/Components/ModalDeleteConfirm.js";
-import TaskList from "./src/Components/TaskList.js";
-import Header from "./src/Components/Header.js";
-import Categories from "./src/Components/Categories.js";
-import Home from "./src/Screens/Home.js";
-import ItemListCategories from "./src/Screens/ItemListCategories.jsx";
+import TopBarTask from "./src/Components/TopBarTask";
+import ModalDeleteConfirm from "./src/Components/ModalDeleteConfirm";
+import TaskList from "./src/Components/TaskList";
+import Header from "./src/Components/Header";
+import Categories from "./src/Components/Categories";
+import Home from "./src/Screens/Home";
+import ItemListCategories from "./src/Screens/ItemListCategories";
 
 const App = () => {
   const [tasks, setTasks] = useState([]);
