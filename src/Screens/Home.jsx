@@ -3,11 +3,11 @@ import React from "react";
 import Header from "../Components/Header";
 import Categories from "../Components/Categories";
 
-const Home = () => {
+const Home = ({ setCategorySelect }) => {
   return (
     <>
       <Header title="Home" />
-      <Categories />
+      <Categories setCategorySelect={setCategorySelect} />
     </>
   );
 };

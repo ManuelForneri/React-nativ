@@ -14,6 +14,8 @@ const App = () => {
   const [taskSelected, setTaskSelected] = useState({});
   const [newTaskName, setNewTaskName] = useState("");
 
+  const [categorySelect, setCategorySelect] = useState("");
+
   const addTask = () => {
     const newTask = {
       id: Date.now(),
@@ -42,8 +44,13 @@ const App = () => {
         tasks={tasks}
         setTasks={setTasks}
       /> */}
-      {/* <Home /> home terminado */}
-      <ItemListCategories />
+      {categorySelect ? (
+        <ItemListCategories categorySelect={categorySelect} />
+      ) : (
+        <Home setCategorySelect={setCategorySelect} />
+      )}
+
+      {/* <ItemListCategories /> */}
     </View>
   );
 };

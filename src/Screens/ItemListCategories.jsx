@@ -5,15 +5,25 @@ import SearchBar from "../Components/SearchBar";
 import allTasks from "../Data/products.json";
 import TaskItem from "../Components/TaskItem";
 
-const ItemListCategories = () => {
+const ItemListCategories = ({ categorySelect }) => {
   const [keyword, setKeyword] = useState("");
   const [tasks, setTasks] = useState(allTasks);
 
   useEffect(() => {
-    const taskfiltered = allTasks.filter((item) =>
-      item.title.includes(keyword)
-    );
-    setTasks(taskfiltered);
+    if (categorySelect) {
+      const taskCategory = allTasks.filter(
+        (item) => item.category === categorySelect
+      );
+      const taskfiltered = taskCategory.filter((item) =>
+        item.title.includes(keyword)
+      );
+      setTasks(taskfiltered);
+    } else {
+      const taskfiltered = allTasks.filter((item) =>
+        item.title.includes(keyword)
+      );
+      setTasks(taskfiltered);
+    }
   }, [keyword]);
 
   return (
