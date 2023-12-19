@@ -7,6 +7,7 @@ import Header from "./src/Components/Header";
 import Categories from "./src/Components/Categories";
 import Home from "./src/Screens/Home";
 import ItemListCategories from "./src/Screens/ItemListCategories";
+import { useFonts } from "expo-font";
 
 const App = () => {
   const [tasks, setTasks] = useState([]);
@@ -15,6 +16,12 @@ const App = () => {
   const [newTaskName, setNewTaskName] = useState("");
 
   const [categorySelect, setCategorySelect] = useState("");
+
+  const [fontLoaded] = useFonts({
+    Josefin: require("./assets/fonts/JosefinSans-Bold.ttf"),
+  });
+
+  if (!fontLoaded) return null;
 
   const addTask = () => {
     const newTask = {

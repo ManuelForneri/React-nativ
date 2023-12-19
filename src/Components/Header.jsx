@@ -4,7 +4,7 @@ import React from "react";
 const Header = ({ title = "Prueba" }) => {
   return (
     <View style={styles.container}>
-      <Text>{title}</Text>
+      <Text style={styles.titleFont}>{title}</Text>
     </View>
   );
 };
@@ -17,5 +17,8 @@ const styles = StyleSheet.create({
     height: 80,
     justifyContent: "center",
     alignItems: "center",
+  },
+  titleFont: {
+    fontFamily: "Josefin",
   },
 });
