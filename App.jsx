@@ -3,7 +3,7 @@ import { View, StyleSheet } from "react-native";
 import TopBarTask from "./src/Components/TopBarTask";
 import ModalDeleteConfirm from "./src/Components/ModalDeleteConfirm";
 import TaskList from "./src/Components/TaskList";
-import Header from "./src/Components/Header";
+
 import Categories from "./src/Components/Categories";
 import Home from "./src/Screens/Home";
 import ItemListCategories from "./src/Screens/ItemListCategories";
@@ -52,7 +52,10 @@ const App = () => {
         setTasks={setTasks}
       /> */}
       {categorySelect ? (
-        <ItemListCategories categorySelect={categorySelect} />
+        <ItemListCategories
+          categorySelect={categorySelect}
+          setCategorySelect={setCategorySelect}
+        />
       ) : (
         <Home setCategorySelect={setCategorySelect} />
       )}
