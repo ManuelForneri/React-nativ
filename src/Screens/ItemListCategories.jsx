@@ -5,7 +5,11 @@ import SearchBar from "../Components/SearchBar";
 import TaskItem from "../Components/TaskItem";
 import allTasks from "../Data/products.json";
 
-const ItemListCategories = ({ categorySelect, setCategorySelect }) => {
+const ItemListCategories = ({
+  categorySelect,
+  setCategorySelect,
+  setProductDetail,
+}) => {
   const [keyword, setKeyword] = useState("");
   const [tasks, setTasks] = useState(allTasks);
 
@@ -37,7 +41,9 @@ const ItemListCategories = ({ categorySelect, setCategorySelect }) => {
         style={styles.container}
         data={tasks}
         keyExtractor={(item) => item.id}
-        renderItem={({ item }) => <TaskItem item={item} />}
+        renderItem={({ item }) => (
+          <TaskItem item={item} setProductDetail={setProductDetail} />
+        )}
       />
     </>
   );

@@ -1,16 +1,19 @@
-import { Image, StyleSheet, Text, View } from "react-native";
+import { Image, Pressable, StyleSheet, Text, View } from "react-native";
 import React from "react";
 
-const TaskItem = ({ item }) => {
+const TaskItem = ({ item, setProductDetail }) => {
   return (
-    <View style={styles.cardTask}>
+    <Pressable
+      style={styles.cardTask}
+      onPress={() => setProductDetail(item.id)}
+    >
       <Image
         style={styles.itemImage}
         resizeMode="cover"
         source={{ uri: item.thumbnail }}
       />
       <Text style={{ color: "#fff" }}>{item.title}</Text>
-    </View>
+    </Pressable>
   );
 };
 

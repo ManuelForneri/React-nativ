@@ -2,11 +2,19 @@ import React from "react";
 import { View, Text, StyleSheet, Pressable } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 
-const AppHeader = ({ title = "Prueba", setCategorySelect }) => {
+const AppHeader = ({
+  title = "Prueba",
+  setCategorySelect,
+  setProductDetail,
+}) => {
+  const resetFilters = () => {
+    setProductDetail(0);
+    setCategorySelect("");
+  };
   return (
     <View style={styles.container}>
-      <Pressable onPress={() => setCategorySelect("")}>
-        <Ionicons name="arrow-back" size={24} color="black" />
+      <Pressable style={styles.backIcon} onPress={() => resetFilters()}>
+        <Ionicons name="arrow-back" size={24} color="white" />
       </Pressable>
       <View style={styles.titleContainer}>
         <Text style={styles.titleFont}>{title}</Text>
@@ -35,5 +43,8 @@ const styles = StyleSheet.create({
     color: "#fff",
     fontSize: 20,
     fontWeight: "bold",
+  },
+  backIcon: {
+    paddingLeft: 10,
   },
 });
