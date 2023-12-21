@@ -35,6 +35,7 @@ const ItemListCategories = ({
       <AppHeader
         title="ItemListCategories"
         setCategorySelect={setCategorySelect}
+        setProductDetail={setProductDetail}
       />
       <SearchBar setKeyword={setKeyword} />
       <FlatList

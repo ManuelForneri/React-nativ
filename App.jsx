@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, SafeAreaView, StatusBar } from "react-native";
 
 import { useFonts } from "expo-font";
 import Home from "./src/Screens/Home";
@@ -16,25 +16,28 @@ const App = () => {
   if (!fontLoaded) return null;
 
   return (
-    <View>
-      {categorySelect ? (
-        productDetail != 0 ? (
-          <ItemDetail
-            productDetail={productDetail}
-            setCategorySelect={setCategorySelect}
-            setProductDetail={setProductDetail}
-          />
+    <>
+      <StatusBar />
+      <SafeAreaView>
+        {categorySelect ? (
+          productDetail != 0 ? (
+            <ItemDetail
+              productDetail={productDetail}
+              setCategorySelect={setCategorySelect}
+              setProductDetail={setProductDetail}
+            />
+          ) : (
+            <ItemListCategories
+              categorySelect={categorySelect}
+              setCategorySelect={setCategorySelect}
+              setProductDetail={setProductDetail}
+            />
+          )
         ) : (
-          <ItemListCategories
-            categorySelect={categorySelect}
-            setCategorySelect={setCategorySelect}
-            setProductDetail={setProductDetail}
-          />
-        )
-      ) : (
-        <Home setCategorySelect={setCategorySelect} />
-      )}
-    </View>
+          <Home setCategorySelect={setCategorySelect} />
+        )}
+      </SafeAreaView>
+    </>
   );
 };
 const styles = StyleSheet.create({});

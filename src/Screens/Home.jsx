@@ -1,12 +1,12 @@
 import React from "react";
 import { StyleSheet } from "react-native";
-import AppHeader from "../Components/AppHeader";
 import Categories from "../Components/Categories";
+import HomeBar from "../Components/HomeBar";
 
 const Home = ({ setCategorySelect }) => {
   return (
     <>
-      <AppHeader title="Home" setCategorySelect={setCategorySelect} />
+      <HomeBar />
       <Categories setCategorySelect={setCategorySelect} />
     </>
   );
