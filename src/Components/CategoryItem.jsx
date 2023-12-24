@@ -1,13 +1,10 @@
 import { Pressable, StyleSheet, Text, View } from "react-native";
 import React from "react";
 
-const CategoryItem = ({ item, setCategorySelect }) => {
+const CategoryItem = ({ item }) => {
   return (
     <View style={styles.container}>
-      <Pressable
-        style={styles.category}
-        onPress={() => setCategorySelect(item)}
-      >
+      <Pressable style={styles.category} onPress={() => console.log(item)}>
         <Text>{item} </Text>
       </Pressable>
     </View>
