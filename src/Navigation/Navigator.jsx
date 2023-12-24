@@ -3,6 +3,8 @@ import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import HomeBar from "../Components/HomeBar";
 
+const Stack = createNativeStackNavigator();
+
 const Navigator = () => {
   return (
     <NavigationContainer>
