@@ -3,13 +3,15 @@ import React from "react";
 import categories from "../Data/categories.json";
 import CategoryItem from "./CategoryItem";
 
-const Categories = () => {
+const Categories = ({ navigation, route }) => {
   return (
     <View>
       <FlatList
         data={categories}
         keyExtractor={(item) => item}
-        renderItem={({ item }) => <CategoryItem item={item} />}
+        renderItem={({ item }) => (
+          <CategoryItem item={item} navigation={navigation} route={route} />
+        )}
       />
     </View>
   );
