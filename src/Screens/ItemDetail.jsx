@@ -14,7 +14,6 @@ const ItemDetail = ({ route }) => {
 
   return (
     <View style={styles.container}>
-      <AppHeader title="ProductDetail" />
       <View style={styles.contentContainer}>
         <Image
           style={styles.itemImage}

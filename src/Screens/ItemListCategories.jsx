@@ -29,7 +29,6 @@ const ItemListCategories = ({ navigation, route }) => {
 
   return (
     <>
-      <AppHeader title="ItemListCategories" />
       <SearchBar setKeyword={setKeyword} />
       <FlatList
         style={styles.container}
