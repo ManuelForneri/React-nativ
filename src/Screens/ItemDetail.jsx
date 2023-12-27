@@ -3,21 +3,18 @@ import React, { useEffect, useState } from "react";
 import AppHeader from "../Components/AppHeader";
 import allProduct from "../Data/products.json";
 
-const ItemDetail = ({ productDetail, setCategorySelect, setProductDetail }) => {
+const ItemDetail = ({ route }) => {
+  const { id } = route.params;
   const [product, setProduct] = useState({});
 
   useEffect(() => {
-    const prodFind = allProduct.find((prod) => prod.id === productDetail);
+    const prodFind = allProduct.find((prod) => prod.id === id);
     setProduct(prodFind);
-  }, [productDetail]);
+  }, [id]);
 
   return (
     <View style={styles.container}>
-      <AppHeader
-        title="ProductDetail"
-        setCategorySelect={setCategorySelect}
-        setProductDetail={setProductDetail}
-      />
+      <AppHeader title="ProductDetail" />
       <View style={styles.contentContainer}>
         <Image
           style={styles.itemImage}

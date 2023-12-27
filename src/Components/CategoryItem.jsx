@@ -6,7 +6,7 @@ const CategoryItem = ({ item, navigation, route }) => {
     <View style={styles.container}>
       <Pressable
         style={styles.category}
-        onPress={() => navigation.navigate("Category", { item })}
+        onPress={() => navigation.navigate("Category", { category: item })}
       >
         <Text>{item} </Text>
       </Pressable>

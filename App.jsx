@@ -1,14 +1,8 @@
-import { useState } from "react";
-import { StyleSheet, View, SafeAreaView, StatusBar } from "react-native";
-
+import { StatusBar, StyleSheet } from "react-native";
 import { useFonts } from "expo-font";
-import Home from "./src/Screens/Home";
-import ItemListCategories from "./src/Screens/ItemListCategories";
-import ItemDetail from "./src/Screens/ItemDetail.jsx";
+import Navigator from "./src/Navigation/Navigator";
 
 const App = () => {
-  const [categorySelect, setCategorySelect] = useState("");
-  const [productDetail, setProductDetail] = useState(0);
   const [fontLoaded] = useFonts({
     Josefin: require("./assets/fonts/JosefinSans-Bold.ttf"),
   });
@@ -18,25 +12,7 @@ const App = () => {
   return (
     <>
       <StatusBar />
-      <SafeAreaView>
-        {categorySelect ? (
-          productDetail != 0 ? (
-            <ItemDetail
-              productDetail={productDetail}
-              setCategorySelect={setCategorySelect}
-              setProductDetail={setProductDetail}
-            />
-          ) : (
-            <ItemListCategories
-              categorySelect={categorySelect}
-              setCategorySelect={setCategorySelect}
-              setProductDetail={setProductDetail}
-            />
-          )
-        ) : (
-          <Home setCategorySelect={setCategorySelect} />
-        )}
-      </SafeAreaView>
+      <Navigator />
     </>
   );
 };

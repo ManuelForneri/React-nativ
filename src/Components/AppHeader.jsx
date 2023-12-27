@@ -13,9 +13,6 @@ const AppHeader = ({
   };
   return (
     <View style={styles.container}>
-      <Pressable style={styles.backIcon} onPress={() => resetFilters()}>
-        <Ionicons name="arrow-back" size={24} color="white" />
-      </Pressable>
       <View style={styles.titleContainer}>
         <Text style={styles.titleFont}>{title}</Text>
       </View>

@@ -1,11 +1,11 @@
 import { Image, Pressable, StyleSheet, Text, View } from "react-native";
 import React from "react";
 
-const TaskItem = ({ item, setProductDetail }) => {
+const TaskItem = ({ item, navigation, route }) => {
   return (
     <Pressable
       style={styles.cardTask}
-      onPress={() => setProductDetail(item.id)}
+      onPress={() => navigation.navigate("Product", { id: item.id })}
     >
       <Image
         style={styles.itemImage}

@@ -6,7 +6,7 @@ import AppHeader from "../Components/AppHeader";
 const Home = ({ navigation, route }) => {
   return (
     <>
-      <AppHeader title="Home" />
+      <AppHeader title="Categories" />
       <Categories navigation={navigation} route={route} />
     </>
   );
