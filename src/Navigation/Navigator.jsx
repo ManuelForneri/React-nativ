@@ -1,19 +1,17 @@
 import { NavigationContainer } from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import Home from "../Screens/Home";
-import ItemDetail from "../Screens/ItemDetail";
-import ItemListCategories from "../Screens/ItemListCategories";
+import ShopStack from "./ShopStack";
+import CartStack from "./CartStack";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
-const Stack = createNativeStackNavigator();
+const Tab = createBottomTabNavigator();
 
 const Navigator = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Home" component={Home} />
-        <Stack.Screen name="Category" component={ItemListCategories} />
-        <Stack.Screen name="Product" component={ItemDetail} />
-      </Stack.Navigator>
+      <Tab.Navigator screenOptions={{ headerShown: false }}>
+        <Tab.Screen name="ShopScreen" component={ShopStack} />
+        <Tab.Screen name="CartScreen" component={CartStack} />
+      </Tab.Navigator>
     </NavigationContainer>
   );
 };
