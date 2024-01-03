@@ -1,6 +1,5 @@
-import { Image, Pressable, StyleSheet, Text, View } from "react-native";
 import React, { useEffect, useState } from "react";
-import AppHeader from "../Components/AppHeader";
+import { Image, Pressable, StyleSheet, Text, View } from "react-native";
 import allProduct from "../Data/products.json";
 
 const ItemDetail = ({ route }) => {

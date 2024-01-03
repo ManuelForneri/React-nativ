@@ -1,6 +1,6 @@
 import { StatusBar, StyleSheet } from "react-native";
 import { useFonts } from "expo-font";
-import Navigator from "./src/Navigation/Navigator";
+import TabNavigator from "./src/Navigation/TabNavigator";
 
 const App = () => {
   const [fontLoaded] = useFonts({
@@ -12,7 +12,7 @@ const App = () => {
   return (
     <>
       <StatusBar />
-      <Navigator />
+      <TabNavigator />
     </>
   );
 };
