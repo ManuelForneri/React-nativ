@@ -1,5 +1,6 @@
 import { Pressable, StyleSheet, Text, View } from "react-native";
 import React from "react";
+import { colors } from "../Global/colors";
 
 const CategoryItem = ({ item, navigation, route }) => {
   return (
@@ -8,7 +9,7 @@ const CategoryItem = ({ item, navigation, route }) => {
         style={styles.category}
         onPress={() => navigation.navigate("Category", { category: item })}
       >
-        <Text>{item} </Text>
+        <Text style={styles.text}>{item} </Text>
       </Pressable>
     </View>
   );
@@ -22,14 +23,17 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   category: {
-    color: "red",
-    fontSize: 10,
     borderWidth: 1,
     padding: 2,
     margin: 5,
-    width: 150,
-    height: 50,
+    width: 200,
+    height: 40,
     justifyContent: "center",
     alignItems: "center",
+    backgroundColor: colors.primary,
+  },
+  text: {
+    fontSize: 15,
+    color: "#fff",
   },
 });

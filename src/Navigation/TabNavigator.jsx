@@ -5,6 +5,9 @@ import CartStack from "./CartStack";
 import TaskStack from "./TaskStack";
 import { StyleSheet } from "react-native";
 import { colors } from "../Global/colors";
+import { Entypo } from "@expo/vector-icons";
+import { AntDesign } from "@expo/vector-icons";
+import { FontAwesome5 } from "@expo/vector-icons";
 
 const Tab = createBottomTabNavigator();
 
@@ -12,11 +15,37 @@ const TabNavigator = () => {
   return (
     <NavigationContainer>
       <Tab.Navigator
-        screenOptions={{ headerShown: false, tabBarStyle: styles.tabBar }}
+        screenOptions={{
+          headerShown: false,
+          tabBarStyle: styles.tabBar,
+          tabBarShowLabel: false,
+        }}
       >
-        <Tab.Screen name="ShopScreen" component={ShopStack} />
-        <Tab.Screen name="CartScreen" component={CartStack} />
-        <Tab.Screen name="TaskScreen" component={TaskStack} />
+        <Tab.Screen
+          name="ShopScreen"
+          component={ShopStack}
+          options={{
+            tabBarIcon: () => <Entypo name="shop" size={24} color="white" />,
+          }}
+        />
+        <Tab.Screen
+          name="CartScreen"
+          component={CartStack}
+          options={{
+            tabBarIcon: () => (
+              <AntDesign name="shoppingcart" size={24} color="white" />
+            ),
+          }}
+        />
+        <Tab.Screen
+          name="TaskScreen"
+          component={TaskStack}
+          options={{
+            tabBarIcon: () => (
+              <FontAwesome5 name="tasks" size={24} color="white" />
+            ),
+          }}
+        />
       </Tab.Navigator>
     </NavigationContainer>
   );
