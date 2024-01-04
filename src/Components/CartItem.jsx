@@ -9,6 +9,7 @@ const CartItem = ({ item }) => {
       <View style={styles.itemDetails}>
         <Text style={styles.title}>{item.title}</Text>
         <Text style={styles.brand}>{item.brand}</Text>
+        <Text style={styles.brand}>Cantidad: {item.quantity}</Text>
         <Text style={styles.price}>$ {item.price}</Text>
         <Image
           style={[styles.itemImage, { borderRadius: 10 }]}
