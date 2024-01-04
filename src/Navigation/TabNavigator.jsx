@@ -25,15 +25,22 @@ const TabNavigator = () => {
           name="ShopScreen"
           component={ShopStack}
           options={{
-            tabBarIcon: () => <Entypo name="shop" size={24} color="white" />,
+            tabBarIcon: ({ focused }) => (
+              <Entypo name="shop" size={24} color="white" focused={focused} />
+            ),
           }}
         />
         <Tab.Screen
           name="CartScreen"
           component={CartStack}
           options={{
-            tabBarIcon: () => (
-              <AntDesign name="shoppingcart" size={24} color="white" />
+            tabBarIcon: ({ focused }) => (
+              <AntDesign
+                name="shoppingcart"
+                size={24}
+                color="white"
+                focused={focused}
+              />
             ),
           }}
         />
@@ -41,8 +48,13 @@ const TabNavigator = () => {
           name="TaskScreen"
           component={TaskStack}
           options={{
-            tabBarIcon: () => (
-              <FontAwesome5 name="tasks" size={24} color="white" />
+            tabBarIcon: ({ focused }) => (
+              <FontAwesome5
+                name="tasks"
+                size={24}
+                color="white"
+                focused={focused}
+              />
             ),
           }}
         />

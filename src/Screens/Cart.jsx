@@ -9,12 +9,15 @@ const Cart = () => {
 
   useEffect(() => {
     setCart(allCart);
-    const total = cart.reduce(
+  }, []);
+
+  useEffect(() => {
+    const newTotal = cart.reduce(
       (acc, product) => acc + product.price * product.quantity,
       0
     );
-    setTotal(total);
-  }, []);
+    setTotal(newTotal);
+  }, [cart]);
 
   return (
     <View style={styles.container}>
